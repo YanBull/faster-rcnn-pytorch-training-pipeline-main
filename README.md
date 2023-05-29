@@ -1,5 +1,6 @@
 # A Simple Pipeline to Train PyTorch FasterRCNN Model
 
+# Forked from this [Repository](https://github.com/sovit-123/fasterrcnn-pytorch-training-pipeline) by sovit-123 and added some evaluation functionality   
 Train PyTorch FasterRCNN models easily on any custom dataset. Choose between official PyTorch models trained on COCO dataset, or choose any backbone from Torchvision classification models, or even write your own custom backbones. 
 
 ## Custom Model Naming Conventions
