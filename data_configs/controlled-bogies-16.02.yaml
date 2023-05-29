@@ -1,0 +1,34 @@
+# Images and labels direcotry should be relative to train.py
+TRAIN_DIR_IMAGES: data/controlled-bogies-16.02/train/images
+TRAIN_DIR_LABELS: data/controlled-bogies-16.02/train/annotations
+# VALID_DIR should be relative to train.py
+VALID_DIR_IMAGES: data/controlled-bogies-16.02/valid/images
+VALID_DIR_LABELS: data/controlled-bogies-16.02/valid/annotations
+
+# Class names.
+CLASSES: [
+    '__background__',
+    None,
+    Schraubenmutter_mit_Markierung,
+    Anhebepunkt_Kran,
+    E-Sicherheitshinweis,
+    Schraubenmutter_Seite,
+    Schraubenkopf_Seite,
+    Einstellpfeil,
+    Schraubenmutter_Seite_mit_Markierung,
+    Schraubenkopf,
+    Schraubenmutter,
+    Achsabstand_links,
+    Achsabstand_rechts,
+    Anhebepunkt,
+    Schraubenkopf_Seite_mit_Markierung,
+    Schraubenkopf_Luftfeder,
+    Schraubenkopf_mit_Markierung,
+    Erdungsplakette
+]
+
+# Number of classes (object classes + 1 for background class in Faster RCNN).
+NC: 18
+
+# Whether to save the predictions of the validation set while training.
+SAVE_VALID_PREDICTION_IMAGES: True

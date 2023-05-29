@@ -1,0 +1,18 @@
+data/*
+!data/README.md
+!data/*.py
+outputs/
+inference_outputs
+test.sh
+*__pycache__/
+
+# Weights and Biases
+wandb/*
+
+# IPython checkpoints
+.ipynb_checkpoints
+
+# logging outputs
+nohup.out
+
+.vscode

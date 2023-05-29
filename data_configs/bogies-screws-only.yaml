@@ -1,0 +1,85 @@
+# Images and labels direcotry should be relative to train.py
+TRAIN_DIR_IMAGES: data/images/train
+TRAIN_DIR_LABELS: data/annotations/train
+# VALID_DIR should be relative to train.py
+VALID_DIR_IMAGES: data/images/val
+VALID_DIR_LABELS: data/annotations/val
+
+# Class names.
+CLASSES: [
+    '__background__',
+    Schraubenkopf,
+    Schraubenkopf_Seite_mit_Markierung,
+    Schraubenkopf_Luftfeder,
+    Schraubenmutter_Seite,
+    Schraubenkopf_Seite,
+    Schraubenmutter,
+    Schraubenmutter_mit_Markierung,
+    Schraubenmutter_Seite_mit_Markierung,
+    Schraubenkopf_mit_Markierung,
+]
+
+CLASS_GROUPS: [
+    {
+        GROUP_NAME: "WITH_MARKING",
+        CLASSES: [
+            Schraubenkopf_Seite_mit_Markierung,
+            Schraubenkopf_mit_Markierung,
+            Schraubenmutter_mit_Markierung,
+            Schraubenmutter_Seite_mit_Markierung,
+        ]
+    },
+    {
+        GROUP_NAME: "NO_MARKING",
+        CLASSES: [
+            Schraubenkopf,
+            Schraubenkopf_Seite,
+            Schraubenmutter,
+            Schraubenmutter_Seite,
+        ]
+    },
+    {
+        GROUP_NAME: "ETC",
+        CLASSES: [
+            '__background__',
+            Schraubenkopf_Luftfeder
+        ]
+    }
+]
+
+# Classes defined by Operational Design Domain
+# Define certain conditions, under which the screws will/will not be detected 
+ODD_CLASS_GROUPS: [
+    {
+        GROUP_NAME: "LIGHTING",
+        CLASSES: [
+            OVEREXPOSED,
+            UNDEREXPOSED,
+            NORMAL_EXPOSURE
+        ]
+    },
+    {
+        GROUP_NAME: "IMAGE_EDGE",
+        CLASSES: [
+            "ON_THE_EDGE",
+            "NOT_ON_THE_EDGE"
+        ]
+    },
+    {
+        GROUP_NAME: "PATCH_SIZE",
+        CLASSES: [
+            "SMALL",
+            "NORMAL_SIZE"
+        ]
+    }
+]
+    
+
+# Number of classes (object classes + 1 for background class in Faster RCNN).
+NC: 10
+
+# Whether to save the predictions of the validation set while training.
+SAVE_VALID_PREDICTION_IMAGES: True
+
+# python train.py --config data_configs/controlled-bogies-16.02.yaml --epochs 100  --project-name bogies-16.02-faster-rcnn --batch-size 4
+# python train.py --model fasterrcnn_resnet50_fpn --config data_configs/bogies-screws-only.yaml --epochs 100 --project-name pretrained-bogies-screws-only-21.02 --batch-size 4 
